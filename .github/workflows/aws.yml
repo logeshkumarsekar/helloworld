@@ -65,5 +65,10 @@ jobs:
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG
         docker push $ECR_REGISTRY/$ECR_REPOSITORY:LATEST
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
-        sh script.sh
+        
+    - name: Retrieve Scan report
+      run: |
+        sh script.sh 
+      
+        
         
