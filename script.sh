@@ -1,5 +1,6 @@
 #!/bin/bash
 #aws ecr start-image-scan --repository-name loge-hellowworld --image-id imageTag=LATEST
+aws ecr describe-image-scan-findings --repository-name loge-helloworld --image-id imageTag=LATEST
 aws ecr wait image-scan-complete --repository-name loge-helloworld --image-id imageTag=LATEST
 if [ $(echo $?) -eq 0 ]; then
   SCAN_FINDINGS=$(aws ecr describe-image-scan-findings --repository-name loge-helloworld --image-id imageTag=LATEST | jq '.imageScanFindings.findingSeverityCounts')
