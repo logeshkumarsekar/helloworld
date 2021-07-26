@@ -68,6 +68,7 @@ jobs:
         
     - name: Retrieve Scan report
       run: |
+        aws ecr describe-image-scan-findings --repository-name loge-helloworld --image-id imageTag=LATEST
         sh script.sh 
       
         
