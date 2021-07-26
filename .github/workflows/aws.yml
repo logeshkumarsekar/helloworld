@@ -44,8 +44,5 @@ jobs:
     - name: Publish Scan report
       run:
         aws ecr describe-image-scan-findings --repository-name loge-helloworld --image-id imageTag=LATEST
-        
-    - name: Build status depends on vulnerability report
-      run:
         sh script.sh
       
