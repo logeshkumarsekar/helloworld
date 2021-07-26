@@ -1,6 +1,6 @@
 FROM alpine
 
-Create app directory
+#Create app directory
 #WORKDIR /usr/src/app
 
 # Install app dependencies
