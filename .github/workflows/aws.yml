@@ -47,5 +47,5 @@ jobs:
         
     - name: Build status depends on vulnerability report
       run:
-        ./script.sh
+        sh script.sh
       
