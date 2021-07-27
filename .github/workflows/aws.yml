@@ -42,11 +42,13 @@ jobs:
         echo "::set-output name=image::$ECR_REGISTRY/$ECR_REPOSITORY:$IMAGE_TAG"
         # aws ecr start-image-scan --repository-name loge-helloworld --image-id imageTag=LATEST --region us-east-1
         
-    - name: Publish Scan report
+    - name: Export scan report to json
       run: |
         sleep 60
         aws ecr describe-image-scan-findings --repository-name loge-helloworld --image-id imageTag=LATEST --region us-east-1 > report.json
-        ls
+    
+    - name: Publish Scan report to S3
+      run: aws s3 cp ./report.json s3://loge-helloworld1001/
       
     - name: Validate Scan report
       run:
