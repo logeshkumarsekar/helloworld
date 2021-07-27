@@ -46,9 +46,8 @@ jobs:
       run: |
         sleep 60
         aws ecr describe-image-scan-findings --repository-name loge-helloworld --image-id imageTag=LATEST --region us-east-1 > report.json
-        #cat report.json
+        ls
       
     - name: Validate Scan report
       run:
-        cat report.json
         sh script.sh
