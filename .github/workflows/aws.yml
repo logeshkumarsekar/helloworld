@@ -46,6 +46,6 @@ jobs:
     - run: echo $ecr_report
     - run: script.sh
       
-   # - name: Validate Scan report
+   # -  name: Validate Scan report
     #run:
         #sh script.sh
