@@ -44,6 +44,8 @@ jobs:
         
     - name: Publish Scan report
       run: |
+        with:
+        time: '60s'
         aws ecr describe-image-scan-findings --repository-name loge-helloworld --image-id imageTag=LATEST --region us-east-1
       
     - name: Validate Scan report
