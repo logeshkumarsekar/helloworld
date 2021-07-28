@@ -44,7 +44,8 @@ jobs:
         
     - name: Export scan report to json
       run: |
-        sleep 60
+        #sleep 60
+        aws ecr wait image-scan-complete --repository-name loge-helloworld --image-id imageTag=LATEST
         aws ecr describe-image-scan-findings --repository-name loge-helloworld --image-id imageTag=LATEST --region us-east-1 > report.json
     
     - name: Publish Scan report to S3
